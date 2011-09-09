@@ -31,4 +31,9 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+# Authentication
 gem "devise"
+
+# Behaviors
+gem 'acts-as-taggable-on', '~>2.1.0'
