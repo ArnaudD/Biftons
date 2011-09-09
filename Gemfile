@@ -37,3 +37,6 @@ gem "devise"
 
 # Behaviors
 gem 'acts-as-taggable-on', '~>2.1.0'
+
+# Backbones
+gem "rails-backbone"
