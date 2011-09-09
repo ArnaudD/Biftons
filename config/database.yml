@@ -12,10 +12,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: Biftons_development
+  database: biftons
   pool: 5
-  username: root
-  password:
+  username: biftons
+  password: biftons
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
