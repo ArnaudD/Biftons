@@ -2,7 +2,7 @@
 <div id="transactions"></div>
 <script type="text/javascript"> 
   $(function() {
-     window.router = new Biftons.Routers.TransactionsRouter({posts: <%= @transactions.to_json.html_safe -%>});
+     window.router = new Biftons.Routers.TransactionsRouter({transactions: <%= @transactions.to_json.html_safe -%>});
      Backbone.history.start();
    });
  </script>

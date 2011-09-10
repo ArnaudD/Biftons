@@ -1,8 +1,10 @@
 class TransactionsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   # GET /transactions/new.json
   def new
-    @transaction = Transaction.new
+    @transaction = current_user.transactions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1/edit
   def edit
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(params[:transaction])
+    @transaction = current_user.transactions.new(params[:transaction])
 
     respond_to do |format|
       if @transaction.save
@@ -56,7 +58,7 @@ class TransactionsController < ApplicationController
   # PUT /transactions/1
   # PUT /transactions/1.json
   def update
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
@@ -72,7 +74,7 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1
   # DELETE /transactions/1.json
   def destroy
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
     @transaction.destroy
 
     respond_to do |format|
